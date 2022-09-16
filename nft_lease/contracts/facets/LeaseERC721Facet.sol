@@ -52,18 +52,18 @@ contract LeaseERC721Facet  {
         s.erc721f.baseMintFee = _cost;
     }
 
-     // sets price per time period
+     // returns price per time period
     function rentPrice() external view returns(uint256) {
         return s.erc721f.rentPrice;
     }
 
 
-    // sets the amount of blocks that you rent with one unit of rent
+    // returns the amount of blocks that you rent with one unit of rent
     function baseRentTime() external view returns(uint256) {
         return s.erc721f.baseRentTime;
     }
 
-    // sets the cost of minting a subscription 
+    // returns the cost of minting a subscription 
     function baseMintFee() external view returns(uint256) {
         return s.erc721f.baseMintFee;
     }

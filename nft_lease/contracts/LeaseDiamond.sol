@@ -45,15 +45,7 @@ contract LeaseDiamond {
         ds.supportedInterfaces[type(IDiamondCut).interfaceId] = true;        
         ds.supportedInterfaces[type(IDiamondLoupe).interfaceId] = true;
 
-        
 
-        // // create wearable tickets:
-        // emit TransferSingle(msg.sender, address(0), address(0), 0, 0);
-        // emit TransferSingle(msg.sender, address(0), address(0), 1, 0);
-        // emit TransferSingle(msg.sender, address(0), address(0), 2, 0);
-        // emit TransferSingle(msg.sender, address(0), address(0), 3, 0);
-        // emit TransferSingle(msg.sender, address(0), address(0), 4, 0);
-        // emit TransferSingle(msg.sender, address(0), address(0), 5, 0);
     }
 
     // Find facet for function that is called and execute the

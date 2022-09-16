@@ -16,6 +16,7 @@ struct ERC721F {
     uint256 circulatingSupply;
     uint256 rentPrice;
     uint256 baseRentTime;
+    uint256 baseMintFee;
 }
 
 struct SubManage {
