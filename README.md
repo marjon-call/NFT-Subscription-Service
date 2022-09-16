@@ -1,7 +1,7 @@
 # NFT-Subscription-Service
 
 TL;DR
-A format for a NFT that you can use as proof of subscription. This implementation uses the Diamond Standard.
+A format for a NFT that can be used as proof of subscription. This implementation uses the Diamond Standard.
 
 Using the Diamond Standard, to allow future contract upgrades, I created a subscription based protocol that uses a NFT as record of subscription. The NFT (```LeaseERC721Facet.sol```) is based off of OpenZepplin's ERC721 contract, but adapeted to the Diamond Standard. ```LeaseERC721Facet.sol``` also adds the following functions that taylors its uitlity to a subscription model:
 
