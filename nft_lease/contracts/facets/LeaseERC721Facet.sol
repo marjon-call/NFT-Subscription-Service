@@ -46,11 +46,31 @@ contract LeaseERC721Facet  {
         s.erc721f.baseRentTime = _blocks;
     }
 
+    // sets the cost of minting a subscription 
+    function setBaseMintFee(uint256 _cost) external {
+        LibDiamond.enforceIsContractOwner();
+        s.erc721f.baseMintFee = _cost;
+    }
+
+     // sets price per time period
+    function rentPrice() external view returns(uint256) {
+        return s.erc721f.rentPrice;
+    }
+
+
+    // sets the amount of blocks that you rent with one unit of rent
+    function baseRentTime() external view returns(uint256) {
+        return s.erc721f.baseRentTime;
+    }
+
+    // sets the cost of minting a subscription 
+    function baseMintFee() external view returns(uint256) {
+        return s.erc721f.baseMintFee;
+    }
+
     // checks how many blocks until subscription expires
     function getRentedBlocksRemaining(uint256 _tokenId) public view returns (uint256) {
         require(_exists(_tokenId), "LeaseERC721Facet: invalid token ID");
-        // uint256 userRentBalance = s.erc721f.rentBalance[_tokenId];
-        // uint256 userBlockRentPayed = s.erc721f.blockRentPayed[_tokenId];
 
         if(block.number - s.erc721f.blockRentPayed[_tokenId] >= s.erc721f.rentBalance[_tokenId]) {
             return 0;
@@ -322,7 +342,7 @@ contract LeaseERC721Facet  {
     function mint(address to) external payable  {    
         uint256 rentPrice = s.erc721f.rentPrice;  
         require(to != address(0), "LeaseERC721Facet: mint to the zero address");
-        require(msg.value >= rentPrice, "LeaseERC721Facet: not enough rent sent to contract");
+        require(msg.value >= rentPrice + s.erc721f.baseMintFee, "LeaseERC721Facet: not enough rent sent to contract");
 
 
         s.erc721f.circulatingSupply++;

@@ -18,7 +18,8 @@ contract LeaseDiamond {
         string name;
         string symbol;
         uint256 rentPrice;
-        uint256 baseRentTime;        
+        uint256 baseRentTime;
+        uint256 baseMintFee;        
     }
 
 
@@ -33,6 +34,7 @@ contract LeaseDiamond {
         s.erc721f._symbol = _args.symbol;
         s.erc721f.rentPrice = _args.rentPrice;
         s.erc721f.baseRentTime = _args.baseRentTime;
+        s.erc721f.baseMintFee = _args.baseMintFee;
 
 
         LibDiamond.DiamondStorage storage ds = LibDiamond.diamondStorage();
